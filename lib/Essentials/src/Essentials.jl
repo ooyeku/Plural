@@ -2,8 +2,9 @@ module Essentials
 include("ReadFile.jl")
 include("MakeFeather.jl")
 include("Clean.jl")
-using .ReadFile, .MakeFeather, DataFrames, Feather, .Clean, Dates, BenchmarkTools
-export make_date, dayofweek, count_missing, remove_missing, rename_col, shuffle, load, make_feather, make_date
+include("Ds.jl")
+using .ReadFile, .MakeFeather, DataFrames, Feather, .Clean, Dates, BenchmarkTools, .Ds
+
 
 # create sample data
 df = DataFrame(
@@ -22,10 +23,7 @@ df = DataFrame(
 function demo(df::DataFrame)
     # write sample to feather
     @benchmark make_feather("test", df)
-    # read sample from feather
     @benchmark load("test.feather")
 end
-
-demo(df)
 
 end # module Essentials

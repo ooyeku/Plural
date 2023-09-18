@@ -1,6 +1,6 @@
 # Demo exploratory work with the iris dataset
 
-include("../lib/DS/clean.jl")
+# include("../lib/DS/clean.jl")
 include("../src/Plural.jl")
 
 # load the tidyverse package
@@ -16,7 +16,7 @@ first(df, 5)
 last(df, 5)
 
 # shuffle the iris dataset
-df = shuffle(df)
+df = Essentials.shuffle(df)
 
 # remove last column from the iris dataset (species)
 df = df[:, 1:4]
@@ -31,14 +31,14 @@ first(half1, 5)
 first(half2, 5)
 
 # create half1x and half1y using cut_col
-half1x, half1y = cut_col(half1, 2, 3)
+half1x, half1y = Essentials.Clean.cut_row(half1, 2, 3)
 
 # print the first 5 rows of half1x and half1y
 first(half1x, 5)
 first(half1y, 5)
 
 # create half2x and half2y using cut_col   
-half2x, half2y = cut_col(half2, 2, 3)
+half2x, half2y = Essentials.Clean.cut_row(half2, 2, 3)
 
 # print the first 5 rows of half2x and half2y
 first(half2x, 5)

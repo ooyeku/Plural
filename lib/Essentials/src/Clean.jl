@@ -86,22 +86,25 @@ function rename_col(df::DataFrame, col::Int, new_col::String)
     return df
 end
 
-# shuffle observations in a dataframe 
+# shuffle observations in a dataframe (reorganize row indexes)
 function shuffle(df::DataFrame)
-    return df[shuffle(1:nrow(df)), :]
+   for i in 1:nrow(df)
+        df[i, :] = df[rand(1:nrow(df)), :]
+    end
+    return df
 end
 
-# function shuffle(df::DataFrame, col::String)
-#     return df[shuffle(1:nrow(df)), :]
-# end
+# cut a dataframe into two halves -(by row index)
+function cut_row(df::DataFrame, row1::Int, row2::Int)
+    return df[1:row1, :], df[row2:end, :]
+end
 
-# function shuffle(df::DataFrame, col::Int)
-#     return df[shuffle(1:nrow(df)), :]
-# end
-
-# function shuffle(df::DataFrame, col::Symbol)
-#     return df[shuffle(1:nrow(df)), :]
-# end
+# cut a dataframe into two halves -(automatically split in half, removes middle row if odd number of rows)
+function cut_row(df::DataFrame)
+    row1 = floor(Int, nrow(df)/2)
+    row2 = row1 + 1
+    return df[1:row1, :], df[row2:end, :]
+end
 
 
 end # module Clean

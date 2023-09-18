@@ -1,4 +1,4 @@
-include("src/Plural.jl")
+include("../src/Plural.jl")
 
 msg = """
 Welcome to Plural, a Julia package for data science and machine learning.
