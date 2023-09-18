@@ -91,5 +91,17 @@ function shuffle(df::DataFrame)
     return df[shuffle(1:nrow(df)), :]
 end
 
+# function shuffle(df::DataFrame, col::String)
+#     return df[shuffle(1:nrow(df)), :]
+# end
+
+# function shuffle(df::DataFrame, col::Int)
+#     return df[shuffle(1:nrow(df)), :]
+# end
+
+# function shuffle(df::DataFrame, col::Symbol)
+#     return df[shuffle(1:nrow(df)), :]
+# end
+
 
 end # module Clean
