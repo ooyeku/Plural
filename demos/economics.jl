@@ -1,6 +1,5 @@
 include("../lib/Essentials/src/Essentials.jl")
-using .Essentials
-
+using .Essentials, .Essentials.Ds
 install_tidyverse()
 install_janitor()
 load_tidyverse()
@@ -32,6 +31,7 @@ example04 = begin
     mean(df[!, :uempmed])
 end
 
+using Statistics, StatsBase
 example05 = begin
     # what corolation is there between the change in unemployment and the change in population?
     println("what corolation is there between the change in unemployment and the change in population?")

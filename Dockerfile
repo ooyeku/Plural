@@ -28,8 +28,15 @@ RUN apt-get update && apt-get install -y tree
 # install tmux
 RUN apt-get update && apt-get install -y tmux
 
+RUN R -e "install.packages('devtools', repos='http://cran.us.r-project.org')"
+RUN R -e "install.packages('tidyverse', repos='http://cran.us.r-project.org')"
+RUN R -e "install.packages('janitor', repos='http://cran.us.r-project.org')"
+
 # Set the working directory to /usr/myapp in the container
 WORKDIR /julia/
+
+# install tidyverse and janitor to julia (using Conda.jl)
+RUN julia -e 'using Pkg; Pkg.add("Conda"); using Conda; Conda.add("r-tidyverse"); Conda.add("r-janitor")'
 
 # Copy the current directory contents (where the Dockerfile is located) into the container at /usr/myapp
 COPY . .

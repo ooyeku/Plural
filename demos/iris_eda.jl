@@ -2,12 +2,14 @@
 
 # include("../lib/DS/clean.jl")
 include("../src/Plural.jl")
+include("../lib/Essentials/src/Essentials.jl")
+using .Plural, .Essentials
 
 # load the tidyverse package
-load_tidyverse()
+Essentials.Ds.load_tidyverse()
 
 # load the iris dataset
-df = load_iris()
+df = Essentials.Ds.load_iris()
 
 # print the first 5 rows of the iris dataset
 first(df, 5)
@@ -22,7 +24,7 @@ df = Essentials.shuffle(df)
 df = df[:, 1:4]
 
 # split the iris dataset into two halves
-half1, half2 = cut_row(df, 75, 76)
+half1, half2 = Essentials.Clean.cut_row(df, 75, 76)
 
 # print the first 5 rows of the first half of the iris dataset
 first(half1, 5)
@@ -44,6 +46,7 @@ half2x, half2y = Essentials.Clean.cut_row(half2, 2, 3)
 first(half2x, 5)
 first(half2y, 5)
 
+using Statistics, StatsBase
 describe(half1x)
 describe(half1y)
 
@@ -51,3 +54,6 @@ names(half1x) == names(half2x)
 names(half1y) == names(half2y)
 
 half1x
+
+Plural.show_environment()
+Plural.memory_usage()

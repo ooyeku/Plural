@@ -1,4 +1,6 @@
 include("../src/Plural.jl")
+include("../lib/Essentials/src/Essentials.jl")
+using .Plural, .Essentials.Ds
 
 msg = """
 Welcome to Plural, a Julia package for data science and machine learning.
