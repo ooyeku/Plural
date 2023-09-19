@@ -14,7 +14,6 @@ mutable struct Exchange
     to::Language
 end
 
-
 # Data struct representing universal data type (that can be passed
 # between languages).  Data is a string, but can be converted to other
 # types (e.g. Int, Float, etc.) as needed. Data is passed between languages
@@ -22,8 +21,7 @@ mutable struct Data
     data::String
     owner::Language
 end
-
-
+ 
 # ExchangeData function exchanges data between languages
 function ExchangeData(exchange::Exchange, data::Data)
     if data.owner == exchange.from
