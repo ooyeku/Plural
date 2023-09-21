@@ -1,6 +1,4 @@
-module Clean
 using DataFrames, Dates 
-export make_date, dayofweek, count_missing, remove_missing, rename_col, shuffle
 
 # Turn a column of a dataframe into a Date type with a specified format -(by column name)
 function make_date(df::DataFrame, col::String, format::String)
@@ -106,5 +104,3 @@ function cut_row(df::DataFrame)
     return df[1:row1, :], df[row2:end, :]
 end
 
-
-end # module Clean

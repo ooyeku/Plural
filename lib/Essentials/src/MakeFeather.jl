@@ -1,7 +1,5 @@
-module MakeFeather
-include("ReadFile.jl")
-using Feather, DataFrames, .ReadFile
-export make_feather
+include("readFile.jl")
+using Feather, DataFrames
 
 # load data from file and save as feather file
 function make_feather(filename::String)
@@ -30,5 +28,3 @@ function make_feather(filename::String, df::DataFrame, cols::Array{String,1})
         error("Error making feather file: $e")
     end
 end
-
-end # module MakeFeather

@@ -1,9 +1,14 @@
 module Essentials
-include("ReadFile.jl")
-include("MakeFeather.jl")
-include("Clean.jl")
-include("Ds.jl")
-using .ReadFile, .MakeFeather, DataFrames, Feather, .Clean, Dates, BenchmarkTools, .Ds
+include("readFile.jl")
+include("makeFeather.jl")
+include("clean.jl")
+include("ds.jl")
+using  DataFrames, Feather, Dates, BenchmarkTools
+export load, make_feather, clean, load_iris, load_mtcars,
+load_diamonds, load_mpg, load_txhousing, load_economics,
+load_midwest, rsummary, tabyl_r, tabyl_j, colnames_r, colnames_j, coltypes_r,
+coltypes_j, nrow_r, nrow_j, ncol_r, ncol_j, ggplot_r, install_tidyverse,
+install_janitor, load_tidyverse, load_janitor, loadggplot2
 
 
 # create sample data

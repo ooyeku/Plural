@@ -1,6 +1,7 @@
 module Plural
 include("../lib/Essentials/src/Essentials.jl")
 using .Essentials
+export show_environment, memory_usage, Essentials
 
 # show all variables in the environment
 function show_environment()

@@ -1,6 +1,4 @@
-module ReadFile
 using CSV, DataFrames, JSONTables, XLSX, Feather
-export load
 
 function load(filename::String)
     try
@@ -19,5 +17,3 @@ function load(filename::String)
         error("Error reading file: $e")
     end
     end
-
-end # module ReadFile
