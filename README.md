@@ -8,17 +8,8 @@ Polyglot data-practioners toolkit that includes a unified interface for:
 1. R
 2. Julia
 3. Python
-4. Rust
-
-Using Julia as the main interface to wrap R, Python, and Rust functins
-for serving datascience (DS), business intelligence (BI), data engineering (DE), and artificial intellignece (AI).
+4. TBD
 
 ### Getting Started
 
-### Modules
-#### DS
-#### BI
-#### DE
-#### AI
-### Examples
 
