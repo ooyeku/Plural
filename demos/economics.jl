@@ -1,11 +1,11 @@
 include("../lib/Essentials/src/Essentials.jl")
-using .Essentials, .Essentials.Ds
-install_tidyverse()
-install_janitor()
-load_tidyverse()
-load_janitor()
+using .Essentials 
+Essentials.install_tidyverse()
+Essentials.install_janitor()
+Essentials.load_tidyverse()
+Essentials.load_janitor()
 
-df = load_economics()
+df = Essentials.load_economics()
 
 example01 = begin 
     # What is the avg unemployment rate?

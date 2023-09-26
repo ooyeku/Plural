@@ -6,10 +6,10 @@ include("../lib/Essentials/src/Essentials.jl")
 using .Plural, .Essentials
 
 # load the tidyverse package
-Essentials.Ds.load_tidyverse()
+Essentials.load_tidyverse()
 
 # load the iris dataset
-df = Essentials.Ds.load_iris()
+df = Essentials.load_iris()
 
 # print the first 5 rows of the iris dataset
 first(df, 5)
@@ -24,7 +24,7 @@ df = Essentials.shuffle(df)
 df = df[:, 1:4]
 
 # split the iris dataset into two halves
-half1, half2 = Essentials.Clean.cut_row(df, 75, 76)
+half1, half2 = Essentials.cut_row(df, 75, 76)
 
 # print the first 5 rows of the first half of the iris dataset
 first(half1, 5)
@@ -33,14 +33,14 @@ first(half1, 5)
 first(half2, 5)
 
 # create half1x and half1y using cut_col
-half1x, half1y = Essentials.Clean.cut_row(half1, 2, 3)
+half1x, half1y = Essentials.cut_row(half1, 2, 3)
 
 # print the first 5 rows of half1x and half1y
 first(half1x, 5)
 first(half1y, 5)
 
 # create half2x and half2y using cut_col   
-half2x, half2y = Essentials.Clean.cut_row(half2, 2, 3)
+half2x, half2y = Essentials.cut_row(half2, 2, 3)
 
 # print the first 5 rows of half2x and half2y
 first(half2x, 5)
