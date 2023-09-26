@@ -1,6 +1,6 @@
 include("../src/Plural.jl")
 include("../lib/Essentials/src/Essentials.jl")
-using .Plural, .Essentials.Ds
+using .Plural, .Essentials
 
 msg = """
 Welcome to Plural, a Julia package for data science and machine learning.
@@ -46,16 +46,13 @@ The rsummary() function is a wrapper for the R summary() function:
 function demo()
     println(msg)
     println(msg2)
-    sleep(4)
     @info "Demo:"
     println(tidyexample)
     @info "Loading tidyverse package"
-    load_tidyverse()
-    sleep(1)
+    Essentials.load_tidyverse()
     println(tidyexample2)
     @info "Loading iris dataset"
-    sleep(1)
-    df = load_iris()
+    df = Essentials.load_iris()
     first(df, 5)
     sleep(4)
     println(tidyexample3)
