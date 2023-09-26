@@ -42,10 +42,10 @@ RUN julia -e 'using Pkg; Pkg.add("Conda"); using Conda; Conda.add("r-tidyverse")
 COPY . .
 
 # Copy the Julia script
-COPY install_packages.jl .
+COPY src/install_packages.jl .
 
 # Run the Julia script to install the packages
-RUN julia install_packages.jl
+RUN julia src/install_packages.jl
 
 # Run src/Plural.jl whenever a container starts
 CMD ["julia"]
